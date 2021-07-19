@@ -46,7 +46,7 @@ app.get('/restaurants/:id', async (req, res) => {
             include: MenuItem
         }
     });
-    res.json(restaurant);
+    res.render("restaurant", {restaurant});
 });
 
 app.post('/restaurants', restaurantChecks, async (req, res) => {
