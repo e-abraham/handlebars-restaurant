@@ -36,7 +36,7 @@ const restaurantChecks = [
 ]
 
 app.get('/restaurants', async (req, res) => {
-    const restaurants = await Restaurant.findAll();
+    const restaurants = await Restaurant.findAll({include: Menu});
     res.render("restaurants", {restaurants}); //2 args: string name of template, data to put in
 });
 
@@ -46,8 +46,15 @@ app.get('/restaurants/:id', async (req, res) => {
             include: MenuItem
         }
     });
+    console.log("adjfkdj", restaurant)
     res.render("restaurant", {restaurant});
 });
+
+app.get('/menus/:id', async (req, res) => {
+    const menu = await Menu.findByPk(req.params.id, {include: MenuItem})
+    console.log("asdfhdljflkd", {menu})
+    res.render("menu", {menu})
+})
 
 app.post('/restaurants', restaurantChecks, async (req, res) => {
     const errors = validationResult(req);

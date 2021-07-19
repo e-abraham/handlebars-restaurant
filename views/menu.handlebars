@@ -1,0 +1,10 @@
+<div>
+    <h2>{{menu.title}}</h2>
+    <h4>Number of items: {{menu.MenuItems.length}}</h4>
+    {{#each menu.MenuItems}}
+        <article class="clearfix item-container block">
+			<h4>{{name}}: ${{price}}</h4>
+		</article>
+    {{/each}}
+    <a class="btn" href="/restaurants/{{menu.RestaurantId}}">Back to Restaurant</a>
+</div>
