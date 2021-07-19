@@ -1,10 +1,18 @@
-<section>
-    <h2>There are {{restaurants.length}} restaurants</h2>
+<div class="row">
+    <div class="col">
+        <h2>There are {{restaurants.length}} restaurants</h2>
+    </div>
+</div>
+<div class="row">
     {{#each restaurants}}
-        <article class="clearfix item-container block">
-			<h2>{{name}}</h2>
-			<img class="item-img" src="{{image}}" />
-            <a class="btn" href="/restaurants/{{id}}">View Restaurant</a>
-		</article>
+        <div class="card" style="max-width: 18rem;">
+            <div class="card-header">
+                <h2>{{name}}</h2>
+            </div>
+            <img class="card-img" src="{{image}}" />
+            <div class="card-body">
+                <a class="btn btn-primary" href="/restaurants/{{id}}">View Restaurant</a>
+            </div>
+        </div>
     {{/each}}
-</section>
+</div>

@@ -46,13 +46,12 @@ app.get('/restaurants/:id', async (req, res) => {
             include: MenuItem
         }
     });
-    console.log("adjfkdj", restaurant)
     res.render("restaurant", {restaurant});
 });
 
 app.get('/menus/:id', async (req, res) => {
     const menu = await Menu.findByPk(req.params.id, {include: MenuItem})
-    console.log("asdfhdljflkd", {menu})
+    const restaurant = await men
     res.render("menu", {menu})
 })
 
